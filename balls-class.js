@@ -11,6 +11,7 @@ class Ball {
     this.xSpeed = Math.floor(Math.random() * 10);
     this.ySpeed = Math.floor(Math.random() * 10);
     this.color = "blue";
+    this.colors = ["red", "green", "blue"];
     //ctx.fillStyle = ctx.clearRect(0, 0, width, height);
   }
 
