@@ -39,7 +39,7 @@ Ball.prototype.move = function () {
 
 // проверка столкновения шарика и стен - меняем движение на противоположное
 Ball.prototype.checkCollision = function () {
-  console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
+//   console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
   if (this.x < 0 || this.x > width) {
     this.xSpeed = -this.xSpeed;
   }
@@ -47,12 +47,12 @@ Ball.prototype.checkCollision = function () {
   if (this.y < 0 || this.y > height) {
     this.ySpeed = -this.ySpeed;
   }
-  console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
+//   console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
 };
 
-let ball = new Ball();
-console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
-ball.draw();
+// let ball = new Ball();
+// console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
+// ball.draw();
 
 // рисуем n шариков
 var balls = [];
