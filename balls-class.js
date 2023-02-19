@@ -44,6 +44,33 @@ class Ball {
     }
   }
 }
-let ball = new Ball(canvas);
-console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
-ball.draw();
+// let ball = new Ball(canvas);
+// console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
+// ball.draw();
+
+class BallsGame {
+  constructor(balls, canvas) {
+    this.ctx = canvas.getContext("2d");
+    this.width = canvas.width;
+    this.height = canvas.height;
+    this.balls = balls;
+  }
+
+  clear () {
+    this.ctx.fillStyle = this.ctx.clearRect(0, 0, this.width, this.height);
+  }
+
+  drawBorder(){
+    this.ctx.strokeStyle = "grey";
+    this.ctx.lineWidth = 3;
+    this.ctx.strokeRect(0, 0, this.width, this.height);
+  }
+}
+
+
+const balls = [];
+for (let i = 0; i < n; i++) {
+  balls[i] = new Ball(canvas);
+}
+let ballsGame = new BallsGame(balls, canvas);
+ballsGame.drawBorder();
