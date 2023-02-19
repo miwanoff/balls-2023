@@ -44,3 +44,6 @@ class Ball {
     }
   }
 }
+let ball = new Ball(canvas);
+console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
+ball.draw();
