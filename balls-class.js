@@ -56,17 +56,31 @@ class BallsGame {
     this.balls = balls;
   }
 
-  clear () {
+  clear() {
     this.ctx.fillStyle = this.ctx.clearRect(0, 0, this.width, this.height);
   }
 
-  drawBorder(){
+  drawBorder() {
     this.ctx.strokeStyle = "grey";
     this.ctx.lineWidth = 3;
     this.ctx.strokeRect(0, 0, this.width, this.height);
   }
-}
 
+  go() {
+    this.ctx.clearRect(0, 0, this.width, this.height);
+    console.log(this.balls.length);
+    for (let i = 0; i < this.balls.length; i++) {
+      this.balls[i].draw();
+      this.balls[i].move();
+      this.balls[i].checkCollision();
+    }
+    this.drawBorder();
+  }
+
+  start() {
+    setInterval(this.go.bind(this), 30);
+  }
+}
 
 const balls = [];
 for (let i = 0; i < n; i++) {
@@ -74,3 +88,4 @@ for (let i = 0; i < n; i++) {
 }
 let ballsGame = new BallsGame(balls, canvas);
 ballsGame.drawBorder();
+ballsGame.start();
