@@ -4,7 +4,6 @@ var width = canvas.width;
 var height = canvas.height;
 var n = 10; // 10 шариков
 
-
 // конструктор для шариков
 var Ball = function () {
   this.x = 100;
@@ -31,3 +30,26 @@ Ball.prototype.draw = function () {
   ctx.strokeStyle = "blue";
   circle(this.x, this.y, 3, true);
 };
+
+// движение шарика
+Ball.prototype.move = function () {
+  this.x += this.xSpeed;
+  this.y += this.ySpeed;
+};
+
+// проверка столкновения шарика и стен - меняем движение на противоположное
+Ball.prototype.checkCollision = function () {
+    console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
+  if (this.x < 0 || this.x > width) {
+    this.xSpeed = -this.xSpeed;
+  }
+
+  if (this.y < 0 || this.y > height) {
+    this.ySpeed = -this.ySpeed;
+  }
+  console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
+};
+
+let ball = new Ball();
+console.log(ball.x, ball.y, ball.xSpeed, ball.ySpeed);
+ball.draw();
